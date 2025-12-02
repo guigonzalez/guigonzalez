@@ -22,7 +22,7 @@ export function Footer() {
   ];
 
   return (
-    <footer className="border-t border-gray-100 mt-auto">
+    <footer className="border-t border-gray-100 dark:border-gray-800 mt-auto">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
           <nav className="flex items-center space-x-6">
@@ -30,7 +30,7 @@ export function Footer() {
               <Link
                 key={item.href}
                 href={item.href}
-                className="text-sm text-gray-500 hover:text-gray-900 transition-colors"
+                className="text-sm text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
               >
                 {item.label}
               </Link>
@@ -43,14 +43,14 @@ export function Footer() {
                 href={link.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-sm text-gray-500 hover:text-gray-900 transition-colors"
+                className="text-sm text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
               >
                 {link.label}
               </a>
             ))}
           </div>
         </div>
-        <div className="mt-8 text-center text-sm text-gray-400">
+        <div className="mt-8 text-center text-sm text-gray-400 dark:text-gray-500">
           &copy; {new Date().getFullYear()} Gui Gonzalez. {tFooter('rights')}.
         </div>
       </div>

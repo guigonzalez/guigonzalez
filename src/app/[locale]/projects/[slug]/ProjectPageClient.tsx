@@ -38,12 +38,12 @@ export default function ProjectPageClient({ slug }: ProjectPageClientProps) {
               {project.title[localeKey]}
             </h1>
           </div>
-          <p className="text-xl text-gray-600 mb-8">
+          <p className="text-xl text-gray-600 dark:text-gray-400 mb-8">
             {project.subtitle[localeKey]}
           </p>
           <Link
             href={`/${locale}`}
-            className="text-gray-600 hover:text-gray-900 font-medium"
+            className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white font-medium"
           >
             &larr; {t('backToProjects')}
           </Link>
@@ -106,7 +106,7 @@ export default function ProjectPageClient({ slug }: ProjectPageClientProps) {
         </section>
 
         {/* Brand Strip - Horizontal scroll on mobile */}
-        <section className="bg-white py-6 border-b border-gray-100 sticky top-16 z-40">
+        <section className="bg-white dark:bg-gray-900 py-6 border-b border-gray-100 dark:border-gray-800 sticky top-16 z-40">
           <div className="max-w-6xl mx-auto px-4">
             <div className="flex items-center justify-center gap-8 md:gap-16 overflow-x-auto">
               {whirlpoolCase.brands.map((brand) => (
@@ -124,18 +124,18 @@ export default function ProjectPageClient({ slug }: ProjectPageClientProps) {
         </section>
 
         {/* Metrics - Monochrome cards */}
-        <section className="py-16 bg-white">
+        <section className="py-16 bg-white dark:bg-gray-900">
           <div className="max-w-6xl mx-auto px-4">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
               {project.metrics?.map((metric, index) => (
                 <div
                   key={index}
-                  className="bg-gray-900 rounded-2xl p-6 text-white shadow-lg transform hover:scale-105 transition-transform"
+                  className="bg-gray-900 dark:bg-white rounded-2xl p-6 text-white dark:text-gray-900 shadow-lg transform hover:scale-105 transition-transform"
                 >
                   <div className="text-4xl md:text-5xl font-bold mb-2">
                     {metric.value}
                   </div>
-                  <div className="text-sm text-gray-400">
+                  <div className="text-sm text-gray-400 dark:text-gray-600">
                     {metric.label[localeKey]}
                   </div>
                 </div>
@@ -145,7 +145,7 @@ export default function ProjectPageClient({ slug }: ProjectPageClientProps) {
         </section>
 
         {/* Year 2021 - Image Left, Content Right */}
-        <section className="py-20 bg-white">
+        <section className="py-20 bg-white dark:bg-gray-900">
           <div className="max-w-6xl mx-auto px-4">
             <div className="grid md:grid-cols-2 gap-12 items-center">
               {/* Image Stack */}
@@ -174,10 +174,10 @@ export default function ProjectPageClient({ slug }: ProjectPageClientProps) {
                 <div className="inline-block px-4 py-2 bg-gray-900 text-white rounded-full text-sm font-medium mb-4">
                   2021
                 </div>
-                <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+                <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-6">
                   {whirlpoolCase.years[0].title[localeKey].replace('2021: ', '')}
                 </h2>
-                <div className="space-y-4 text-gray-600">
+                <div className="space-y-4 text-gray-600 dark:text-gray-400">
                   {whirlpoolCase.years[0].content[localeKey].slice(0, 2).map((p, i) => (
                     <p key={i} className="leading-relaxed">{p}</p>
                   ))}
@@ -185,16 +185,16 @@ export default function ProjectPageClient({ slug }: ProjectPageClientProps) {
 
                 {/* Highlight Card */}
                 {whirlpoolCase.years[0].highlight && (
-                  <div className="mt-8 p-6 bg-gray-100 rounded-xl border border-gray-200">
+                  <div className="mt-8 p-6 bg-gray-100 dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700">
                     <div className="flex items-start gap-4">
-                      <div className="w-10 h-10 bg-gray-900 rounded-lg flex items-center justify-center flex-shrink-0">
-                        <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <div className="w-10 h-10 bg-gray-900 dark:bg-white rounded-lg flex items-center justify-center flex-shrink-0">
+                        <svg className="w-5 h-5 text-white dark:text-gray-900" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
                         </svg>
                       </div>
                       <div>
-                        <h4 className="font-bold text-gray-900 mb-2">{whirlpoolCase.years[0].highlight.title[localeKey]}</h4>
-                        <p className="text-sm text-gray-600">{whirlpoolCase.years[0].highlight.content[localeKey]}</p>
+                        <h4 className="font-bold text-gray-900 dark:text-white mb-2">{whirlpoolCase.years[0].highlight.title[localeKey]}</h4>
+                        <p className="text-sm text-gray-600 dark:text-gray-400">{whirlpoolCase.years[0].highlight.content[localeKey]}</p>
                       </div>
                     </div>
                   </div>
@@ -205,7 +205,7 @@ export default function ProjectPageClient({ slug }: ProjectPageClientProps) {
         </section>
 
         {/* Year 2022 - Content Left, Image Right */}
-        <section className="py-20 bg-gray-100">
+        <section className="py-20 bg-gray-100 dark:bg-gray-800">
           <div className="max-w-6xl mx-auto px-4">
             <div className="grid md:grid-cols-2 gap-12 items-center">
               {/* Content */}
@@ -213,10 +213,10 @@ export default function ProjectPageClient({ slug }: ProjectPageClientProps) {
                 <div className="inline-block px-4 py-2 bg-gray-800 text-white rounded-full text-sm font-medium mb-4">
                   2022
                 </div>
-                <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+                <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-6">
                   {whirlpoolCase.years[1].title[localeKey].replace('2022: ', '')}
                 </h2>
-                <div className="space-y-4 text-gray-600">
+                <div className="space-y-4 text-gray-600 dark:text-gray-400">
                   {whirlpoolCase.years[1].content[localeKey].slice(0, 2).map((p, i) => (
                     <p key={i} className="leading-relaxed">{p}</p>
                   ))}
@@ -224,13 +224,13 @@ export default function ProjectPageClient({ slug }: ProjectPageClientProps) {
 
                 {/* Stats inline */}
                 <div className="mt-8 grid grid-cols-2 gap-4">
-                  <div className="p-4 bg-white rounded-xl shadow-sm">
-                    <div className="text-2xl font-bold text-gray-900">50+</div>
-                    <div className="text-sm text-gray-500">{localeKey === 'pt' ? 'Designers' : 'Designers'}</div>
+                  <div className="p-4 bg-white dark:bg-gray-900 rounded-xl shadow-sm">
+                    <div className="text-2xl font-bold text-gray-900 dark:text-white">50+</div>
+                    <div className="text-sm text-gray-500 dark:text-gray-400">{localeKey === 'pt' ? 'Designers' : 'Designers'}</div>
                   </div>
-                  <div className="p-4 bg-white rounded-xl shadow-sm">
-                    <div className="text-2xl font-bold text-gray-900">16</div>
-                    <div className="text-sm text-gray-500">{localeKey === 'pt' ? 'Agilistas' : 'Agilists'}</div>
+                  <div className="p-4 bg-white dark:bg-gray-900 rounded-xl shadow-sm">
+                    <div className="text-2xl font-bold text-gray-900 dark:text-white">16</div>
+                    <div className="text-sm text-gray-500 dark:text-gray-400">{localeKey === 'pt' ? 'Agilistas' : 'Agilists'}</div>
                   </div>
                 </div>
               </div>
@@ -333,13 +333,13 @@ export default function ProjectPageClient({ slug }: ProjectPageClientProps) {
         </section>
 
         {/* Testimonials - Masonry style */}
-        <section className="py-20 bg-gray-50">
+        <section className="py-20 bg-gray-50 dark:bg-gray-800">
           <div className="max-w-6xl mx-auto px-4">
             <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
                 {localeKey === 'pt' ? 'O que minha equipe diz' : 'What my team says'}
               </h2>
-              <p className="text-gray-500">
+              <p className="text-gray-500 dark:text-gray-400">
                 {localeKey === 'pt' ? 'Feedbacks de profissionais que trabalharam comigo' : 'Feedback from professionals who worked with me'}
               </p>
             </div>
@@ -348,10 +348,10 @@ export default function ProjectPageClient({ slug }: ProjectPageClientProps) {
               {whirlpoolCase.testimonials.map((testimonial, index) => (
                 <div
                   key={index}
-                  className="break-inside-avoid bg-white rounded-2xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-shadow"
+                  className="break-inside-avoid bg-white dark:bg-gray-900 rounded-2xl p-6 shadow-lg border border-gray-100 dark:border-gray-700 hover:shadow-xl transition-shadow"
                 >
                   <div className="flex items-center gap-3 mb-4">
-                    <div className="w-12 h-12 rounded-full overflow-hidden bg-gray-200">
+                    <div className="w-12 h-12 rounded-full overflow-hidden bg-gray-200 dark:bg-gray-700">
                       <ImageWithBasePath
                         src={testimonial.image}
                         alt={testimonial.name}
@@ -361,11 +361,11 @@ export default function ProjectPageClient({ slug }: ProjectPageClientProps) {
                       />
                     </div>
                     <div>
-                      <div className="font-semibold text-gray-900">{testimonial.name}</div>
-                      <div className="text-sm text-gray-500">{testimonial.role[localeKey]}</div>
+                      <div className="font-semibold text-gray-900 dark:text-white">{testimonial.name}</div>
+                      <div className="text-sm text-gray-500 dark:text-gray-400">{testimonial.role[localeKey]}</div>
                     </div>
                   </div>
-                  <p className="text-gray-600 leading-relaxed">
+                  <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
                     &ldquo;{testimonial.text[localeKey]}&rdquo;
                   </p>
                 </div>
@@ -375,11 +375,11 @@ export default function ProjectPageClient({ slug }: ProjectPageClientProps) {
         </section>
 
         {/* Back Link */}
-        <section className="py-12 bg-white border-t border-gray-100">
+        <section className="py-12 bg-white dark:bg-gray-900 border-t border-gray-100 dark:border-gray-800">
           <div className="max-w-6xl mx-auto px-4">
             <Link
               href={`/${locale}`}
-              className="inline-flex items-center gap-2 text-gray-600 hover:text-gray-900 font-medium transition-colors"
+              className="inline-flex items-center gap-2 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white font-medium transition-colors"
             >
               <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
@@ -446,7 +446,7 @@ export default function ProjectPageClient({ slug }: ProjectPageClientProps) {
         </section>
 
         {/* Brand Strip */}
-        <section className="bg-white py-6 border-b border-gray-100 sticky top-16 z-40">
+        <section className="bg-white dark:bg-gray-900 py-6 border-b border-gray-100 dark:border-gray-800 sticky top-16 z-40">
           <div className="max-w-6xl mx-auto px-4">
             <div className="flex items-center justify-center gap-8">
               <ImageWithBasePath
@@ -456,7 +456,7 @@ export default function ProjectPageClient({ slug }: ProjectPageClientProps) {
                 height={30}
                 className="h-8 w-auto object-contain opacity-70 hover:opacity-100 transition-opacity"
               />
-              <div className="h-6 w-px bg-gray-200" />
+              <div className="h-6 w-px bg-gray-200 dark:bg-gray-700" />
               <a
                 href={gympassCase.externalLink}
                 target="_blank"
@@ -473,18 +473,18 @@ export default function ProjectPageClient({ slug }: ProjectPageClientProps) {
         </section>
 
         {/* Metrics - Monochrome cards */}
-        <section className="py-16 bg-white">
+        <section className="py-16 bg-white dark:bg-gray-900">
           <div className="max-w-6xl mx-auto px-4">
             <div className="grid grid-cols-3 gap-4 md:gap-6">
               {project.metrics?.map((metric, index) => (
                 <div
                   key={index}
-                  className="bg-gray-900 rounded-2xl p-6 text-white shadow-lg transform hover:scale-105 transition-transform"
+                  className="bg-gray-900 dark:bg-white rounded-2xl p-6 text-white dark:text-gray-900 shadow-lg transform hover:scale-105 transition-transform"
                 >
                   <div className="text-4xl md:text-5xl font-bold mb-2">
                     {metric.value}
                   </div>
-                  <div className="text-sm text-gray-400">
+                  <div className="text-sm text-gray-400 dark:text-gray-600">
                     {metric.label[localeKey]}
                   </div>
                 </div>
@@ -494,7 +494,7 @@ export default function ProjectPageClient({ slug }: ProjectPageClientProps) {
         </section>
 
         {/* Challenge Section - Image Left, Content Right */}
-        <section className="py-20 bg-white">
+        <section className="py-20 bg-white dark:bg-gray-900">
           <div className="max-w-6xl mx-auto px-4">
             <div className="grid md:grid-cols-2 gap-12 items-center">
               {/* Image Stack */}
@@ -523,28 +523,28 @@ export default function ProjectPageClient({ slug }: ProjectPageClientProps) {
                 <div className="inline-block px-4 py-2 bg-[#D8385E] text-white rounded-full text-sm font-medium mb-4">
                   {localeKey === 'pt' ? 'O Desafio' : 'The Challenge'}
                 </div>
-                <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+                <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-6">
                   {localeKey === 'pt' ? 'Unificando o Caos' : 'Unifying the Chaos'}
                 </h2>
-                <div className="space-y-4 text-gray-600">
+                <div className="space-y-4 text-gray-600 dark:text-gray-400">
                   {gympassCase.description[localeKey].slice(0, 2).map((p, i) => (
                     <p key={i} className="leading-relaxed">{p}</p>
                   ))}
                 </div>
 
                 {/* Highlight Card */}
-                <div className="mt-8 p-6 bg-gray-100 rounded-xl border border-gray-200">
+                <div className="mt-8 p-6 bg-gray-100 dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700">
                   <div className="flex items-start gap-4">
-                    <div className="w-10 h-10 bg-[#D8385E] rounded-lg flex items-center justify-center flex-shrink-0">
+                    <div className="w-10 h-10 bg-[#D8385E] rounded-lg flex items-center justify-center shrink-0">
                       <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                       </svg>
                     </div>
                     <div>
-                      <h4 className="font-bold text-gray-900 mb-2">
+                      <h4 className="font-bold text-gray-900 dark:text-white mb-2">
                         {localeKey === 'pt' ? 'O Problema' : 'The Problem'}
                       </h4>
-                      <p className="text-sm text-gray-600">
+                      <p className="text-sm text-gray-600 dark:text-gray-400">
                         {localeKey === 'pt'
                           ? '47 variações de botões e 23 tipos diferentes de inputs espalhados por diferentes squads.'
                           : '47 button variations and 23 different input types spread across different squads.'}
@@ -558,7 +558,7 @@ export default function ProjectPageClient({ slug }: ProjectPageClientProps) {
         </section>
 
         {/* Process Section - Content Left, Image Right */}
-        <section className="py-20 bg-gray-100">
+        <section className="py-20 bg-gray-100 dark:bg-gray-800">
           <div className="max-w-6xl mx-auto px-4">
             <div className="grid md:grid-cols-2 gap-12 items-center">
               {/* Content */}
@@ -566,18 +566,18 @@ export default function ProjectPageClient({ slug }: ProjectPageClientProps) {
                 <div className="inline-block px-4 py-2 bg-gray-800 text-white rounded-full text-sm font-medium mb-4">
                   {localeKey === 'pt' ? 'O Processo' : 'The Process'}
                 </div>
-                <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+                <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-6">
                   {localeKey === 'pt' ? 'Do Caos à Harmonia' : 'From Chaos to Harmony'}
                 </h2>
                 <div className="space-y-4">
                   {gympassCase.process.slice(0, 2).map((step, i) => (
                     <div key={i} className="flex gap-4">
-                      <div className="w-8 h-8 bg-gray-900 text-white rounded-full flex items-center justify-center font-bold flex-shrink-0 text-sm">
+                      <div className="w-8 h-8 bg-gray-900 dark:bg-white text-white dark:text-gray-900 rounded-full flex items-center justify-center font-bold shrink-0 text-sm">
                         {i + 1}
                       </div>
                       <div>
-                        <h4 className="font-bold text-gray-900">{step.title[localeKey]}</h4>
-                        <p className="text-sm text-gray-600">{step.description[localeKey]}</p>
+                        <h4 className="font-bold text-gray-900 dark:text-white">{step.title[localeKey]}</h4>
+                        <p className="text-sm text-gray-600 dark:text-gray-400">{step.description[localeKey]}</p>
                       </div>
                     </div>
                   ))}
@@ -585,13 +585,13 @@ export default function ProjectPageClient({ slug }: ProjectPageClientProps) {
 
                 {/* Stats inline */}
                 <div className="mt-8 grid grid-cols-2 gap-4">
-                  <div className="p-4 bg-white rounded-xl shadow-sm">
-                    <div className="text-2xl font-bold text-gray-900">47 → 1</div>
-                    <div className="text-sm text-gray-500">{localeKey === 'pt' ? 'Variações de Botão' : 'Button Variations'}</div>
+                  <div className="p-4 bg-white dark:bg-gray-900 rounded-xl shadow-sm">
+                    <div className="text-2xl font-bold text-gray-900 dark:text-white">47 → 1</div>
+                    <div className="text-sm text-gray-500 dark:text-gray-400">{localeKey === 'pt' ? 'Variações de Botão' : 'Button Variations'}</div>
                   </div>
-                  <div className="p-4 bg-white rounded-xl shadow-sm">
-                    <div className="text-2xl font-bold text-gray-900">23 → 4</div>
-                    <div className="text-sm text-gray-500">{localeKey === 'pt' ? 'Tipos de Input' : 'Input Types'}</div>
+                  <div className="p-4 bg-white dark:bg-gray-900 rounded-xl shadow-sm">
+                    <div className="text-2xl font-bold text-gray-900 dark:text-white">23 → 4</div>
+                    <div className="text-sm text-gray-500 dark:text-gray-400">{localeKey === 'pt' ? 'Tipos de Input' : 'Input Types'}</div>
                   </div>
                 </div>
               </div>
@@ -701,13 +701,13 @@ export default function ProjectPageClient({ slug }: ProjectPageClientProps) {
         </section>
 
         {/* Team Section - Masonry style like testimonials */}
-        <section className="py-20 bg-gray-50">
+        <section className="py-20 bg-gray-50 dark:bg-gray-800">
           <div className="max-w-6xl mx-auto px-4">
             <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
                 {localeKey === 'pt' ? 'O Time' : 'The Team'}
               </h2>
-              <p className="text-gray-500">
+              <p className="text-gray-500 dark:text-gray-400">
                 {localeKey === 'pt'
                   ? 'Profissionais incríveis que fizeram o YOGA acontecer'
                   : 'Amazing professionals who made YOGA happen'}
@@ -718,15 +718,15 @@ export default function ProjectPageClient({ slug }: ProjectPageClientProps) {
               {gympassCase.team.map((member, index) => (
                 <div
                   key={index}
-                  className="bg-white rounded-2xl p-4 shadow-lg border border-gray-100 hover:shadow-xl transition-shadow text-center"
+                  className="bg-white dark:bg-gray-900 rounded-2xl p-4 shadow-lg border border-gray-100 dark:border-gray-700 hover:shadow-xl transition-shadow text-center"
                 >
                   <div className="w-14 h-14 bg-gradient-to-br from-[#D8385E] to-[#ff6b6b] rounded-full mx-auto mb-3 flex items-center justify-center">
                     <span className="text-white font-bold">
                       {member.name.split(' ').map(n => n[0]).join('')}
                     </span>
                   </div>
-                  <div className="font-semibold text-gray-900 text-sm">{member.name}</div>
-                  <div className="text-xs text-gray-500">{member.role[localeKey]}</div>
+                  <div className="font-semibold text-gray-900 dark:text-white text-sm">{member.name}</div>
+                  <div className="text-xs text-gray-500 dark:text-gray-400">{member.role[localeKey]}</div>
                 </div>
               ))}
             </div>
@@ -759,11 +759,11 @@ export default function ProjectPageClient({ slug }: ProjectPageClientProps) {
         </section>
 
         {/* Back Link */}
-        <section className="py-12 bg-white border-t border-gray-100">
+        <section className="py-12 bg-white dark:bg-gray-900 border-t border-gray-100 dark:border-gray-800">
           <div className="max-w-6xl mx-auto px-4">
             <Link
               href={`/${locale}`}
-              className="inline-flex items-center gap-2 text-gray-600 hover:text-gray-900 font-medium transition-colors"
+              className="inline-flex items-center gap-2 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white font-medium transition-colors"
             >
               <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
@@ -802,9 +802,9 @@ export default function ProjectPageClient({ slug }: ProjectPageClientProps) {
 
       {/* Brands */}
       {project.brands && project.brands.length > 0 && (
-        <div className="py-8 border-b border-gray-100">
+        <div className="py-8 border-b border-gray-100 dark:border-gray-800">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex flex-wrap items-center justify-center gap-8 text-gray-400 font-medium">
+            <div className="flex flex-wrap items-center justify-center gap-8 text-gray-400 dark:text-gray-500 font-medium">
               {project.brands.map((brand) => (
                 <span key={brand}>{brand}</span>
               ))}
@@ -818,8 +818,8 @@ export default function ProjectPageClient({ slug }: ProjectPageClientProps) {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* TL;DR */}
           <section className="mb-12">
-            <h2 className="text-lg font-semibold text-gray-500 mb-4">{t('tldr')}</h2>
-            <p className="text-lg text-gray-700">
+            <h2 className="text-lg font-semibold text-gray-500 dark:text-gray-400 mb-4">{t('tldr')}</h2>
+            <p className="text-lg text-gray-700 dark:text-gray-300">
               {project.description[localeKey]}
             </p>
           </section>
@@ -830,10 +830,10 @@ export default function ProjectPageClient({ slug }: ProjectPageClientProps) {
               <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
                 {project.metrics.map((metric, index) => (
                   <div key={index} className="text-center">
-                    <div className="text-4xl md:text-5xl font-bold text-gray-900 mb-2">
+                    <div className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-2">
                       {metric.value}
                     </div>
-                    <div className="text-sm text-gray-500">
+                    <div className="text-sm text-gray-500 dark:text-gray-400">
                       {metric.label[localeKey]}
                     </div>
                   </div>
@@ -843,8 +843,8 @@ export default function ProjectPageClient({ slug }: ProjectPageClientProps) {
           )}
 
           {/* Project Content - To be filled with MDX */}
-          <section className="prose prose-lg max-w-none">
-            <p className="text-gray-600">
+          <section className="prose prose-lg dark:prose-invert max-w-none">
+            <p className="text-gray-600 dark:text-gray-400">
               {locale === 'pt'
                 ? 'Conteúdo detalhado do case em desenvolvimento...'
                 : 'Detailed case content in development...'}
@@ -852,10 +852,10 @@ export default function ProjectPageClient({ slug }: ProjectPageClientProps) {
           </section>
 
           {/* Back Link */}
-          <div className="mt-12 pt-8 border-t border-gray-100">
+          <div className="mt-12 pt-8 border-t border-gray-100 dark:border-gray-800">
             <Link
               href={`/${locale}`}
-              className="text-gray-600 hover:text-gray-900 font-medium"
+              className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white font-medium"
             >
               &larr; {t('backToProjects')}
             </Link>

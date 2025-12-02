@@ -11,7 +11,7 @@ export function Timeline() {
   return (
     <div className="relative">
       {/* Timeline line */}
-      <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 bg-gray-200 transform md:-translate-x-1/2" />
+      <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 bg-gray-200 dark:bg-gray-700 transform md:-translate-x-1/2" />
 
       <div className="space-y-12">
         {experiences.map((experience, index) => (

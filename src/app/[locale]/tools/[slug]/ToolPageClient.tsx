@@ -25,16 +25,16 @@ export default function ToolPageClient({ slug }: ToolPageClientProps) {
       <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
         <Link
           href={`/${locale}/tools`}
-          className="text-gray-600 hover:text-gray-900 font-medium mb-8 inline-block"
+          className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white font-medium mb-8 inline-block"
         >
           &larr; {t('backToTools')}
         </Link>
 
-        <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+        <h1 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
           {tool.title}
         </h1>
 
-        <p className="text-lg text-gray-600 mb-8">
+        <p className="text-lg text-gray-600 dark:text-gray-400 mb-8">
           {tool.description[localeKey]}
         </p>
 
@@ -42,7 +42,7 @@ export default function ToolPageClient({ slug }: ToolPageClientProps) {
           href={tool.url}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center px-6 py-3 bg-gray-900 text-white rounded-lg font-medium hover:bg-gray-800 transition-colors"
+          className="inline-flex items-center px-6 py-3 bg-gray-900 dark:bg-white text-white dark:text-gray-900 rounded-lg font-medium hover:bg-gray-800 dark:hover:bg-gray-100 transition-colors"
         >
           {t('accessTool')}
           <svg

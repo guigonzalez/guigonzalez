@@ -14,24 +14,24 @@ export default function ContactPage() {
   return (
     <div className="py-16 md:py-24">
       <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8">
+        <h1 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-8">
           {t('getInTouch')}
         </h1>
 
         <div className="mb-12">
-          <h2 className="text-sm font-medium text-gray-500 uppercase tracking-wide mb-2">
+          <h2 className="text-sm font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wide mb-2">
             {t('email')}
           </h2>
           <a
             href="mailto:guiperezgo@gmail.com"
-            className="text-2xl text-blue-600 hover:text-blue-800 font-medium"
+            className="text-2xl text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 font-medium"
           >
             guiperezgo@gmail.com
           </a>
         </div>
 
         <div>
-          <h2 className="text-sm font-medium text-gray-500 uppercase tracking-wide mb-4">
+          <h2 className="text-sm font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wide mb-4">
             {t('socialLinks')}
           </h2>
           <div className="flex items-center justify-center space-x-8">
@@ -41,7 +41,7 @@ export default function ContactPage() {
                 href={link.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-lg text-gray-700 hover:text-gray-900 font-medium transition-colors"
+                className="text-lg text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white font-medium transition-colors"
               >
                 {link.label}
               </a>
