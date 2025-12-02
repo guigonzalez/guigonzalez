@@ -59,16 +59,21 @@ export const projects: Project[] = [
       en: 'Gympass',
     },
     subtitle: {
-      pt: 'Em breve',
-      en: 'Coming soon',
+      pt: 'YOGA Design System - Criando Harmonia no Caos do Design',
+      en: 'YOGA Design System - Crafting Harmony in Design Chaos',
     },
     description: {
-      pt: 'Case em desenvolvimento',
-      en: 'Case in development',
+      pt: 'Liderança na criação do YOGA Design System para unificar a experiência do app Gympass',
+      en: 'Leadership in creating the YOGA Design System to unify the Gympass app experience',
     },
     color: '#ff6b6b',
     textColor: '#ffffff',
-    status: 'placeholder',
+    status: 'complete',
+    metrics: [
+      { value: '6', label: { pt: 'Meses de Trabalho', en: 'Months of Work' } },
+      { value: '10', label: { pt: 'Componentes React Native', en: 'React Native Components' } },
+      { value: '60%', label: { pt: 'Redução Time-to-Market', en: 'Time-to-Market Reduction' } },
+    ],
   },
   {
     slug: 'sympla',
