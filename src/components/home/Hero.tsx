@@ -32,6 +32,9 @@ export function Hero() {
             <p className="text-lg text-gray-600 mb-4 max-w-2xl">
               {t('experience')}
             </p>
+            <p className="text-lg text-gray-600 mb-4 max-w-2xl">
+              {t('aiSpecialization')}
+            </p>
             <p className="text-gray-500 italic">
               {t('linkedinCta')}{' '}
               <a
