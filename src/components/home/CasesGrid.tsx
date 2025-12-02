@@ -1,9 +1,9 @@
 'use client';
 
 import Link from 'next/link';
-import Image from 'next/image';
 import { useLocale, useTranslations } from 'next-intl';
 import { projects } from '@/data/projects';
+import { ImageWithBasePath } from '@/components/ui/ImageWithBasePath';
 
 const projectImages: Record<string, string> = {
   whirlpool: '/images/projects/whirlpool.png',
@@ -36,7 +36,7 @@ export function CasesGrid() {
               onClick={(e) => project.status === 'placeholder' && e.preventDefault()}
             >
               {projectImages[project.slug] && (
-                <Image
+                <ImageWithBasePath
                   src={projectImages[project.slug]}
                   alt={project.title[locale as 'pt' | 'en']}
                   fill

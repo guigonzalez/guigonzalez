@@ -1,9 +1,9 @@
 'use client';
 
 import Link from 'next/link';
-import Image from 'next/image';
 import { useLocale, useTranslations } from 'next-intl';
 import { tools } from '@/data/tools';
+import { ImageWithBasePath } from '@/components/ui/ImageWithBasePath';
 
 const toolImages: Record<string, string> = {
   'roi-de-ux': '/images/tools/roideux.png',
@@ -28,7 +28,7 @@ export function ToolsSection() {
             >
               <div className="flex flex-col items-center text-center p-6 rounded-lg hover:bg-gray-50 transition-colors">
                 <div className="w-24 h-24 mb-4 relative">
-                  <Image
+                  <ImageWithBasePath
                     src={toolImages[tool.slug]}
                     alt={tool.title}
                     fill
