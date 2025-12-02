@@ -1,3 +1,5 @@
+'use client';
+
 import { useTranslations } from 'next-intl';
 import { ToolsSection } from '@/components/home/ToolsSection';
 

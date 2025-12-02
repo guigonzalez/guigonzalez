@@ -1,8 +1,8 @@
 import { NextIntlClientProvider } from 'next-intl';
-import { getMessages } from 'next-intl/server';
+import { getMessages, setRequestLocale } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { Geist, Geist_Mono } from 'next/font/google';
-import { locales } from '@/i18n/config';
+import { routing } from '@/i18n/routing';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import '../globals.css';
@@ -18,7 +18,7 @@ const geistMono = Geist_Mono({
 });
 
 export function generateStaticParams() {
-  return locales.map((locale) => ({ locale }));
+  return routing.locales.map((locale) => ({ locale }));
 }
 
 export default async function LocaleLayout({
@@ -30,9 +30,12 @@ export default async function LocaleLayout({
 }) {
   const { locale } = await params;
 
-  if (!locales.includes(locale as typeof locales[number])) {
+  if (!routing.locales.includes(locale as 'pt' | 'en')) {
     notFound();
   }
+
+  // Enable static rendering
+  setRequestLocale(locale);
 
   const messages = await getMessages();
 
