@@ -1,7 +1,7 @@
 'use client';
 
 import { useTranslations } from 'next-intl';
-import Image from 'next/image';
+import { ImageWithBasePath } from '@/components/ui/ImageWithBasePath';
 
 export default function AboutPage() {
   const t = useTranslations('about');
@@ -12,7 +12,7 @@ export default function AboutPage() {
         {/* Bio Section */}
         <section className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-20 items-center">
           <div className="relative aspect-square md:aspect-[3/4] rounded-2xl overflow-hidden bg-gray-100 shadow-lg">
-            <Image
+            <ImageWithBasePath
               src="/images/profile/about1.jpeg"
               alt="Gui Gonzalez"
               fill
@@ -101,7 +101,7 @@ export default function AboutPage() {
               </p>
             </div>
             <div className="relative aspect-[3/4] rounded-2xl overflow-hidden bg-gray-100 shadow-lg order-1 md:order-2">
-              <Image
+              <ImageWithBasePath
                 src="/images/profile/about2.jpeg"
                 alt="Gui na cozinha"
                 fill
@@ -113,7 +113,7 @@ export default function AboutPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
             <div className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-gray-100 shadow-lg">
-              <Image
+              <ImageWithBasePath
                 src="/images/profile/about3.jpg"
                 alt="Gui com família"
                 fill

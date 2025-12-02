@@ -1,7 +1,7 @@
 'use client';
 
-import Image from 'next/image';
 import { useTranslations } from 'next-intl';
+import { ImageWithBasePath } from '@/components/ui/ImageWithBasePath';
 
 export function Hero() {
   const t = useTranslations('home');
@@ -12,7 +12,7 @@ export function Hero() {
         <div className="flex flex-col md:flex-row items-start gap-8">
           <div className="flex-shrink-0">
             <div className="w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden bg-gray-200">
-              <Image
+              <ImageWithBasePath
                 src="/images/profile/hero.webp"
                 alt="Gui Gonzalez"
                 width={160}

@@ -2,10 +2,10 @@
 
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
-import Image from 'next/image';
 import { useLocale, useTranslations } from 'next-intl';
 import { getProject } from '@/data/projects';
 import { whirlpoolCase } from '@/data/whirlpool-case';
+import { ImageWithBasePath } from '@/components/ui/ImageWithBasePath';
 
 interface ProjectPageClientProps {
   slug: string;
@@ -65,7 +65,7 @@ export default function ProjectPageClient({ slug }: ProjectPageClientProps) {
 
           {/* Floating Images */}
           <div className="absolute top-10 right-[5%] w-48 h-32 rounded-lg overflow-hidden shadow-2xl transform rotate-3 hidden lg:block">
-            <Image
+            <ImageWithBasePath
               src="/images/projects/whirlpool/mentoring-zone.jpg"
               alt=""
               fill
@@ -73,7 +73,7 @@ export default function ProjectPageClient({ slug }: ProjectPageClientProps) {
             />
           </div>
           <div className="absolute bottom-10 right-[15%] w-40 h-28 rounded-lg overflow-hidden shadow-2xl transform -rotate-6 hidden lg:block">
-            <Image
+            <ImageWithBasePath
               src="/images/projects/whirlpool/agile-trends.jpg"
               alt=""
               fill
@@ -84,7 +84,7 @@ export default function ProjectPageClient({ slug }: ProjectPageClientProps) {
           <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
             <div className="max-w-3xl">
               <div className="flex items-center gap-6 mb-8">
-                <Image
+                <ImageWithBasePath
                   src="/images/projects/whirlpool/whirlpool-logo.png"
                   alt="Whirlpool"
                   width={180}
@@ -109,7 +109,7 @@ export default function ProjectPageClient({ slug }: ProjectPageClientProps) {
           <div className="max-w-6xl mx-auto px-4">
             <div className="flex items-center justify-center gap-8 md:gap-16 overflow-x-auto">
               {whirlpoolCase.brands.map((brand) => (
-                <Image
+                <ImageWithBasePath
                   key={brand.name}
                   src={brand.logo}
                   alt={brand.name}
@@ -150,7 +150,7 @@ export default function ProjectPageClient({ slug }: ProjectPageClientProps) {
               {/* Image Stack */}
               <div className="relative">
                 <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl">
-                  <Image
+                  <ImageWithBasePath
                     src="/images/projects/whirlpool/remote-workstation.jpg"
                     alt={whirlpoolCase.years[0].images?.[0]?.alt[localeKey] || ''}
                     fill
@@ -159,7 +159,7 @@ export default function ProjectPageClient({ slug }: ProjectPageClientProps) {
                 </div>
                 {/* Floating card */}
                 <div className="absolute -bottom-6 -right-6 w-48 h-32 rounded-xl overflow-hidden shadow-xl border-4 border-white hidden md:block">
-                  <Image
+                  <ImageWithBasePath
                     src="/images/projects/whirlpool/mentoring-zone.jpg"
                     alt=""
                     fill
@@ -238,7 +238,7 @@ export default function ProjectPageClient({ slug }: ProjectPageClientProps) {
               <div className="order-1 md:order-2 grid grid-cols-2 gap-4">
                 <div className="space-y-4">
                   <div className="aspect-square rounded-xl overflow-hidden shadow-lg">
-                    <Image
+                    <ImageWithBasePath
                       src="/images/projects/whirlpool/kitchenaid-design-system.jpg"
                       alt=""
                       width={300}
@@ -247,7 +247,7 @@ export default function ProjectPageClient({ slug }: ProjectPageClientProps) {
                     />
                   </div>
                   <div className="aspect-[4/3] rounded-xl overflow-hidden shadow-lg">
-                    <Image
+                    <ImageWithBasePath
                       src="/images/projects/whirlpool/agile-trends.jpg"
                       alt=""
                       width={300}
@@ -258,7 +258,7 @@ export default function ProjectPageClient({ slug }: ProjectPageClientProps) {
                 </div>
                 <div className="pt-8 space-y-4">
                   <div className="aspect-[4/3] rounded-xl overflow-hidden shadow-lg">
-                    <Image
+                    <ImageWithBasePath
                       src="/images/projects/whirlpool/efficiency-funnel.png"
                       alt=""
                       width={300}
@@ -306,7 +306,7 @@ export default function ProjectPageClient({ slug }: ProjectPageClientProps) {
             {/* Image */}
             <div className="relative max-w-2xl mx-auto">
               <div className="aspect-video rounded-2xl overflow-hidden shadow-2xl">
-                <Image
+                <ImageWithBasePath
                   src="/images/projects/whirlpool/office-return.jpg"
                   alt=""
                   fill
@@ -351,7 +351,7 @@ export default function ProjectPageClient({ slug }: ProjectPageClientProps) {
                 >
                   <div className="flex items-center gap-3 mb-4">
                     <div className="w-12 h-12 rounded-full overflow-hidden bg-gray-200">
-                      <Image
+                      <ImageWithBasePath
                         src={testimonial.image}
                         alt={testimonial.name}
                         width={48}
