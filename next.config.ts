@@ -8,8 +8,6 @@ const nextConfig: NextConfig = {
   images: {
     unoptimized: true,
   },
-  basePath: process.env.NODE_ENV === 'production' ? '/guigonzalez' : '',
-  assetPrefix: process.env.NODE_ENV === 'production' ? '/guigonzalez' : '',
 };
 
 export default withNextIntl(nextConfig);
