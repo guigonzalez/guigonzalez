@@ -24,6 +24,25 @@ export interface Experience {
 
 export const experiences: Experience[] = [
   {
+    company: 'StudioRX',
+    role: {
+      pt: 'Coordenador de Digital',
+      en: 'Digital Coordinator',
+    },
+    period: {
+      start: 'Dec 2025',
+      end: null,
+    },
+    location: {
+      pt: 'Brasil',
+      en: 'Brazil',
+    },
+    description: {
+      pt: 'Coordenação das iniciativas digitais da StudioRX, integrando design de produto, produção gráfica e digital para criar experiências coesas e de alto impacto.',
+      en: 'Coordinating digital initiatives at StudioRX, integrating product design, graphic and digital production to create cohesive, high-impact experiences.',
+    },
+  },
+  {
     company: 'Ingresse',
     role: {
       pt: 'Especialista em Design + AI',
@@ -31,7 +50,7 @@ export const experiences: Experience[] = [
     },
     period: {
       start: 'Apr 2025',
-      end: null,
+      end: 'Nov 2025',
     },
     location: {
       pt: 'Brasil',
