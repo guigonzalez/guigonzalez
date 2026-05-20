@@ -38,8 +38,8 @@ export const experiences: Experience[] = [
       en: 'Brazil',
     },
     description: {
-      pt: 'Coordenação das iniciativas digitais da StudioRX, integrando design de produto, produção gráfica e digital para criar experiências coesas e de alto impacto.',
-      en: 'Coordinating digital initiatives at StudioRX, integrating product design, graphic and digital production to create cohesive, high-impact experiences.',
+      pt: 'Coordeno desenvolvimento e entregas digitais em projetos de email marketing e CRM para clientes de grande porte nos setores de FMCG e farma. Atuo na interface entre estratégia e tecnologia, garantindo qualidade técnica, alinhamento com stakeholders e consistência nas jornadas de comunicação digital.',
+      en: 'I coordinate digital development and deliveries in email marketing and CRM projects for large clients in the FMCG and pharma sectors. I work at the interface between strategy and technology, ensuring technical quality, stakeholder alignment, and consistency across digital communication journeys.',
     },
   },
   {
