@@ -6,6 +6,9 @@ import { useLocale, useTranslations } from 'next-intl';
 import { getProject } from '@/data/projects';
 import { whirlpoolCase } from '@/data/whirlpool-case';
 import { gympassCase } from '@/data/gympass-case';
+import { symplaCase } from '@/data/sympla-case';
+import { inbookCase } from '@/data/inbook-case';
+import { FlowSteps } from '@/components/projects/FlowSteps';
 import { ImageWithBasePath } from '@/components/ui/ImageWithBasePath';
 
 interface ProjectPageClientProps {
@@ -755,6 +758,562 @@ export default function ProjectPageClient({ slug }: ProjectPageClientProps) {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
               </svg>
             </a>
+          </div>
+        </section>
+
+        {/* Back Link */}
+        <section className="py-12 bg-white dark:bg-gray-900 border-t border-gray-100 dark:border-gray-800">
+          <div className="max-w-6xl mx-auto px-4">
+            <Link
+              href={`/${locale}`}
+              className="inline-flex items-center gap-2 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white font-medium transition-colors"
+            >
+              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+              </svg>
+              {t('backToProjects')}
+            </Link>
+          </div>
+        </section>
+      </div>
+    );
+  }
+
+  // Sympla specific case page - Data-driven CTA discovery
+  if (slug === 'sympla') {
+    return (
+      <div className="overflow-hidden">
+        {/* Hero Section */}
+        <section className="relative min-h-[70vh] flex items-center" style={{ backgroundColor: '#1a56db' }}>
+          <div className="absolute inset-0 opacity-10">
+            <div className="absolute top-20 left-10 w-64 h-64 bg-white rounded-full blur-3xl" />
+            <div className="absolute bottom-20 right-10 w-96 h-96 bg-white rounded-full blur-3xl" />
+          </div>
+
+          <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+            <div className="max-w-3xl">
+              <div className="flex items-center gap-6 mb-8">
+                <span className="text-white text-2xl font-bold">Sympla</span>
+                <div className="h-8 w-px bg-white/30" />
+                <span className="text-white/60 text-sm uppercase tracking-wider">
+                  {localeKey === 'pt' ? 'Case de Dados' : 'Data Case Study'}
+                </span>
+              </div>
+              <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight">
+                {symplaCase.subtitle[localeKey]}
+              </h1>
+              <p className="text-xl text-white/80 leading-relaxed max-w-2xl">
+                {symplaCase.tldr[localeKey]}
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* Metrics */}
+        <section className="py-16 bg-white dark:bg-gray-900">
+          <div className="max-w-6xl mx-auto px-4">
+            <div className="grid grid-cols-3 gap-4 md:gap-6">
+              {project.metrics?.map((metric, index) => (
+                <div
+                  key={index}
+                  className="bg-gray-900 dark:bg-white rounded-2xl p-6 text-white dark:text-gray-900 shadow-lg transform hover:scale-105 transition-transform"
+                >
+                  <div className="text-4xl md:text-5xl font-bold mb-2">
+                    {metric.value}
+                  </div>
+                  <div className="text-sm text-gray-400 dark:text-gray-600">
+                    {metric.label[localeKey]}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Problem Section - Image Left, Content Right */}
+        <section className="py-20 bg-white dark:bg-gray-900">
+          <div className="max-w-6xl mx-auto px-4">
+            <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
+              <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl">
+                <ImageWithBasePath
+                  src={symplaCase.problem.images[0].src}
+                  alt={symplaCase.problem.images[0].alt[localeKey]}
+                  fill
+                  className="object-cover"
+                />
+              </div>
+
+              <div>
+                <div className="inline-block px-4 py-2 bg-[#1a56db] text-white rounded-full text-sm font-medium mb-4">
+                  {symplaCase.problem.title[localeKey]}
+                </div>
+                <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-6">
+                  {symplaCase.problem.heading[localeKey]}
+                </h2>
+                <div className="space-y-4 text-gray-600 dark:text-gray-400">
+                  {symplaCase.problem.content[localeKey].slice(0, 2).map((p, i) => (
+                    <p key={i} className="leading-relaxed">{p}</p>
+                  ))}
+                </div>
+
+                {/* Data points */}
+                <div className="mt-8 grid grid-cols-2 gap-4">
+                  {symplaCase.problem.dataPoints.map((dp, i) => (
+                    <div key={i} className="p-4 bg-gray-100 dark:bg-gray-800 rounded-xl">
+                      <div className="text-2xl font-bold text-gray-900 dark:text-white">{dp.value}</div>
+                      <div className="text-sm text-gray-500 dark:text-gray-400">{dp.label[localeKey]}</div>
+                      {dp.source && (
+                        <div className="text-xs text-gray-400 dark:text-gray-500 mt-1">{dp.source}</div>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            <div className="space-y-4 text-gray-600 dark:text-gray-400 max-w-3xl mx-auto mb-12">
+              {symplaCase.problem.content[localeKey].slice(2).map((p, i) => (
+                <p key={i} className="leading-relaxed">{p}</p>
+              ))}
+            </div>
+
+            {/* Second problem image */}
+            <div className="relative max-w-2xl mx-auto aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl">
+              <ImageWithBasePath
+                src={symplaCase.problem.images[1].src}
+                alt={symplaCase.problem.images[1].alt[localeKey]}
+                fill
+                className="object-cover"
+              />
+            </div>
+            {symplaCase.problem.images[1].caption && (
+              <p className="text-center text-sm text-gray-500 dark:text-gray-400 mt-4 max-w-2xl mx-auto">
+                {symplaCase.problem.images[1].caption![localeKey]}
+              </p>
+            )}
+          </div>
+        </section>
+
+        {/* Solution Section - Content Left, Image Right */}
+        <section className="py-20 bg-gray-100 dark:bg-gray-800">
+          <div className="max-w-6xl mx-auto px-4">
+            <div className="text-center mb-16">
+              <div className="inline-block px-4 py-2 bg-gray-900 dark:bg-white text-white dark:text-gray-900 rounded-full text-sm font-medium mb-4">
+                {symplaCase.solution.title[localeKey]}
+              </div>
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-6 max-w-2xl mx-auto">
+                {symplaCase.solution.heading[localeKey]}
+              </h2>
+              <div className="space-y-4 text-gray-600 dark:text-gray-400 max-w-2xl mx-auto text-left">
+                {symplaCase.solution.content[localeKey].map((p, i) => (
+                  <p key={i} className="leading-relaxed">{p}</p>
+                ))}
+              </div>
+            </div>
+
+            {/* Variants */}
+            <div className="grid md:grid-cols-3 gap-6 mb-16">
+              {symplaCase.solution.variants.map((variant, i) => (
+                <div
+                  key={i}
+                  className={`p-6 rounded-2xl shadow-lg border-2 ${
+                    variant.isWinner
+                      ? 'bg-gray-900 dark:bg-white border-[#1a56db]'
+                      : 'bg-white dark:bg-gray-900 border-transparent'
+                  }`}
+                >
+                  <div className="flex items-center justify-between mb-4">
+                    <h4 className={`font-bold ${variant.isWinner ? 'text-white dark:text-gray-900' : 'text-gray-900 dark:text-white'}`}>
+                      {variant.name}
+                    </h4>
+                    {variant.isWinner && (
+                      <span className="px-3 py-1 bg-[#1a56db] text-white text-xs font-bold rounded-full">
+                        {localeKey === 'pt' ? 'Vencedora +12%' : 'Winner +12%'}
+                      </span>
+                    )}
+                  </div>
+                  <p className={`text-sm leading-relaxed ${variant.isWinner ? 'text-gray-300 dark:text-gray-600' : 'text-gray-600 dark:text-gray-400'}`}>
+                    {variant.description[localeKey]}
+                  </p>
+                </div>
+              ))}
+            </div>
+
+            {/* A/B test image */}
+            <div className="relative max-w-4xl mx-auto aspect-video rounded-2xl overflow-hidden shadow-2xl mb-20">
+              <ImageWithBasePath
+                src={symplaCase.solution.images[0].src}
+                alt={symplaCase.solution.images[0].alt[localeKey]}
+                fill
+                className="object-contain bg-white"
+              />
+            </div>
+
+            {/* Flow */}
+            <div className="grid md:grid-cols-2 gap-12 items-center mb-20">
+              <div>
+                <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
+                  {symplaCase.solution.flow.title[localeKey]}
+                </h3>
+                <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
+                  {symplaCase.solution.flow.description[localeKey]}
+                </p>
+              </div>
+              <div className="relative aspect-video rounded-2xl overflow-hidden shadow-xl bg-white">
+                <ImageWithBasePath
+                  src={symplaCase.solution.flow.image.src}
+                  alt={symplaCase.solution.flow.image.alt[localeKey]}
+                  fill
+                  className="object-contain"
+                />
+              </div>
+            </div>
+
+            {/* Reference images */}
+            <div className="grid md:grid-cols-2 gap-8 mb-20">
+              {symplaCase.solution.images.slice(1).map((img, i) => (
+                <div key={i}>
+                  <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-xl">
+                    <ImageWithBasePath
+                      src={img.src}
+                      alt={img.alt[localeKey]}
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                  {img.caption && (
+                    <p className="text-sm text-gray-500 dark:text-gray-400 mt-3">{img.caption[localeKey]}</p>
+                  )}
+                </div>
+              ))}
+            </div>
+
+            {/* Detailing */}
+            <div className="p-8 md:p-12 bg-gray-900 rounded-2xl text-white shadow-xl">
+              <h3 className="text-2xl font-bold mb-4">{symplaCase.solution.detailing.title[localeKey]}</h3>
+              <p className="text-gray-300 leading-relaxed mb-8 max-w-2xl">
+                {symplaCase.solution.detailing.description[localeKey]}
+              </p>
+              <div className="relative aspect-video rounded-xl overflow-hidden bg-white">
+                <ImageWithBasePath
+                  src={symplaCase.solution.detailing.image.src}
+                  alt={symplaCase.solution.detailing.image.alt[localeKey]}
+                  fill
+                  className="object-contain"
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Result Section - Full width dramatic */}
+        <section className="py-20 bg-gray-900 text-white">
+          <div className="max-w-4xl mx-auto px-4 text-center">
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 text-white rounded-full text-sm font-medium mb-6">
+              <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+              </svg>
+              {symplaCase.result.title[localeKey]}
+            </div>
+            <h2 className="text-3xl md:text-5xl font-bold mb-8">
+              {symplaCase.result.heading[localeKey]}
+            </h2>
+            <p className="text-gray-300 leading-relaxed text-lg max-w-2xl mx-auto">
+              {symplaCase.result.content[localeKey]}
+            </p>
+          </div>
+        </section>
+
+        {/* Back Link */}
+        <section className="py-12 bg-white dark:bg-gray-900 border-t border-gray-100 dark:border-gray-800">
+          <div className="max-w-6xl mx-auto px-4">
+            <Link
+              href={`/${locale}`}
+              className="inline-flex items-center gap-2 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white font-medium transition-colors"
+            >
+              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+              </svg>
+              {t('backToProjects')}
+            </Link>
+          </div>
+        </section>
+      </div>
+    );
+  }
+
+  // InBook specific case page - Research-driven feature design
+  if (slug === 'inbook') {
+    return (
+      <div className="overflow-hidden">
+        {/* Hero Section */}
+        <section className="relative min-h-[70vh] flex items-center" style={{ backgroundColor: '#d81159' }}>
+          <div className="absolute inset-0 opacity-10">
+            <div className="absolute top-20 left-10 w-64 h-64 bg-white rounded-full blur-3xl" />
+            <div className="absolute bottom-20 right-10 w-96 h-96 bg-white rounded-full blur-3xl" />
+          </div>
+
+          <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+            <div className="max-w-3xl">
+              <div className="flex items-center gap-6 mb-8 flex-wrap">
+                <span className="text-white text-2xl font-bold">InBook</span>
+                <div className="h-8 w-px bg-white/30" />
+                <span className="text-white/60 text-sm uppercase tracking-wider">
+                  {localeKey === 'pt' ? 'Pesquisa & Produto' : 'Research & Product'}
+                </span>
+              </div>
+              <div className="flex items-center gap-3 mb-6 text-sm text-white/70">
+                <span>
+                  {localeKey === 'pt' ? 'Cliente' : 'Client'}: <span className="text-white font-medium">{inbookCase.client}</span>
+                </span>
+                <span className="text-white/30">•</span>
+                <span>{inbookCase.period[localeKey]}</span>
+              </div>
+              <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight">
+                {inbookCase.subtitle[localeKey]}
+              </h1>
+              <p className="text-xl text-white/80 leading-relaxed max-w-2xl">
+                {inbookCase.tldr[localeKey]}
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* Metrics */}
+        <section className="py-16 bg-white dark:bg-gray-900">
+          <div className="max-w-6xl mx-auto px-4">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
+              {project.metrics?.map((metric, index) => (
+                <div
+                  key={index}
+                  className="bg-gray-900 dark:bg-white rounded-2xl p-6 text-white dark:text-gray-900 shadow-lg transform hover:scale-105 transition-transform"
+                >
+                  <div className="text-4xl md:text-5xl font-bold mb-2">
+                    {metric.value}
+                  </div>
+                  <div className="text-sm text-gray-400 dark:text-gray-600">
+                    {metric.label[localeKey]}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Challenge Section */}
+        <section className="py-20 bg-white dark:bg-gray-900">
+          <div className="max-w-6xl mx-auto px-4">
+            <div className="text-center mb-16">
+              <div className="inline-block px-4 py-2 bg-[#d81159] text-white rounded-full text-sm font-medium mb-4">
+                {inbookCase.challenge.title[localeKey]}
+              </div>
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-6 max-w-2xl mx-auto">
+                {inbookCase.challenge.heading[localeKey]}
+              </h2>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-12 items-start mb-16">
+              <div className="space-y-4 text-gray-600 dark:text-gray-400">
+                {inbookCase.challenge.content[localeKey].map((p, i) => (
+                  <p key={i} className="leading-relaxed">{p}</p>
+                ))}
+              </div>
+
+              <div className="space-y-6">
+                {/* Data points */}
+                <div className="grid grid-cols-3 gap-4">
+                  {inbookCase.challenge.dataPoints.map((dp, i) => (
+                    <div key={i} className="p-4 bg-gray-100 dark:bg-gray-800 rounded-xl text-center">
+                      <div className="text-2xl font-bold text-gray-900 dark:text-white">{dp.value}</div>
+                      <div className="text-xs text-gray-500 dark:text-gray-400 mt-1">{dp.label[localeKey]}</div>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Personas */}
+                <div className="space-y-4">
+                  {inbookCase.challenge.personas.map((persona, i) => (
+                    <div key={i} className="p-5 bg-gray-900 dark:bg-white rounded-xl text-white dark:text-gray-900">
+                      <div className="flex items-center gap-3 mb-2">
+                        <div className="w-10 h-10 rounded-full bg-[#d81159] flex items-center justify-center font-bold text-white shrink-0">
+                          {persona.name.split(' ').map(n => n[0]).join('')}
+                        </div>
+                        <div>
+                          <div className="font-semibold">{persona.name}</div>
+                          <div className="text-xs opacity-70">{persona.role[localeKey]}</div>
+                        </div>
+                      </div>
+                      <p className="text-sm opacity-80 leading-relaxed">{persona.description[localeKey]}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Field research photos */}
+            <div className="mb-16">
+              <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-6 text-center">
+                {localeKey === 'pt' ? 'A pesquisa em campo' : 'The field research'}
+              </h3>
+              <div className="grid sm:grid-cols-3 gap-4">
+                {inbookCase.challenge.fieldPhotos.map((photo, i) => (
+                  <div key={i}>
+                    <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-xl">
+                      <ImageWithBasePath
+                        src={photo.src}
+                        alt={photo.alt[localeKey]}
+                        fill
+                        className="object-cover"
+                      />
+                    </div>
+                    {photo.caption && (
+                      <p className="text-xs text-gray-500 dark:text-gray-400 mt-2 text-center">
+                        {photo.caption[localeKey]}
+                      </p>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Wireframe image */}
+            <div className="relative max-w-3xl mx-auto aspect-[21/9] rounded-2xl overflow-hidden shadow-2xl bg-gray-900">
+              <ImageWithBasePath
+                src={inbookCase.challenge.images[0].src}
+                alt={inbookCase.challenge.images[0].alt[localeKey]}
+                fill
+                className="object-contain"
+              />
+            </div>
+            {inbookCase.challenge.images[0].caption && (
+              <p className="text-center text-sm text-gray-500 dark:text-gray-400 mt-4 max-w-2xl mx-auto">
+                {inbookCase.challenge.images[0].caption![localeKey]}
+              </p>
+            )}
+
+            {/* Research doc CTA */}
+            <div className="mt-12 flex justify-center">
+              <a
+                href={inbookCase.researchDocUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-[#d81159] text-white rounded-full font-medium hover:bg-[#b80e4a] transition-colors"
+              >
+                {localeKey === 'pt' ? 'Ver documento de pesquisa completo' : 'View full research document'}
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </section>
+
+        {/* Process Section */}
+        <section className="py-20 bg-gray-100 dark:bg-gray-800">
+          <div className="max-w-6xl mx-auto px-4">
+            <div className="text-center mb-12">
+              <div className="inline-block px-4 py-2 bg-gray-900 dark:bg-white text-white dark:text-gray-900 rounded-full text-sm font-medium mb-4">
+                {inbookCase.process.title[localeKey]}
+              </div>
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-6 max-w-2xl mx-auto">
+                {inbookCase.process.heading[localeKey]}
+              </h2>
+              <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto leading-relaxed">
+                {inbookCase.process.intro[localeKey]}
+              </p>
+            </div>
+
+            {/* Flow diagram */}
+            <div className="relative max-w-4xl mx-auto aspect-[21/9] rounded-2xl overflow-hidden shadow-xl bg-white mb-20">
+              <ImageWithBasePath
+                src={inbookCase.process.flowImage.src}
+                alt={inbookCase.process.flowImage.alt[localeKey]}
+                fill
+                className="object-contain"
+              />
+            </div>
+
+            {/* Scenario flows - frame by frame */}
+            <div className="space-y-16 mb-20">
+              {inbookCase.process.scenarios.map((scenario, i) => {
+                const flow = inbookCase.process.flows[i];
+                return (
+                  <div key={i}>
+                    <div className="flex items-start gap-4 mb-6">
+                      <span className="text-2xl font-bold text-[#d81159] shrink-0">{scenario.number}</span>
+                      <div>
+                        <div className="flex items-center gap-3 flex-wrap mb-2">
+                          <h3 className="text-xl font-bold text-gray-900 dark:text-white">
+                            {scenario.title[localeKey]}
+                          </h3>
+                          {scenario.flowType === 'main' ? (
+                            <span className="inline-flex items-center gap-1.5 px-2.5 py-1 bg-[#d81159] text-white text-xs font-semibold rounded-full">
+                              <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
+                                <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                              </svg>
+                              {localeKey === 'pt' ? 'Fluxo Principal' : 'Main Flow'}
+                            </span>
+                          ) : (
+                            <span className="inline-flex items-center gap-1.5 px-2.5 py-1 bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs font-semibold rounded-full">
+                              <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7h12m0 0l-4-4m4 4l-4 4M16 17H4m0 0l4 4m-4-4l4-4" />
+                              </svg>
+                              {localeKey === 'pt' ? 'Fluxo Alternativo' : 'Alternative Flow'}
+                            </span>
+                          )}
+                        </div>
+                        <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed max-w-2xl">
+                          {scenario.explanation[localeKey]}
+                        </p>
+                      </div>
+                    </div>
+                    {flow && (
+                      <FlowSteps
+                        accentColor="#d81159"
+                        steps={flow.frames.map((frame) => ({
+                          src: frame.src,
+                          alt: frame.label[localeKey],
+                          label: frame.label[localeKey],
+                        }))}
+                      />
+                    )}
+                  </div>
+                );
+              })}
+            </div>
+
+            {/* Principles */}
+            <div className="p-8 md:p-12 bg-gray-900 rounded-2xl text-white shadow-xl">
+              <h3 className="text-2xl font-bold mb-8 text-center">
+                {localeKey === 'pt' ? 'Princípios de Design Aplicados' : 'Design Principles Applied'}
+              </h3>
+              <div className="grid sm:grid-cols-2 gap-6">
+                {inbookCase.process.principles.map((principle, i) => (
+                  <div key={i} className="p-5 bg-white/5 rounded-xl backdrop-blur">
+                    <h4 className="font-bold mb-2">{principle.title[localeKey]}</h4>
+                    <p className="text-sm text-gray-300 leading-relaxed">{principle.description[localeKey]}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Result Section */}
+        <section className="py-20 bg-gray-900 text-white">
+          <div className="max-w-4xl mx-auto px-4 text-center">
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 text-white rounded-full text-sm font-medium mb-6">
+              <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+              </svg>
+              {inbookCase.result.title[localeKey]}
+            </div>
+            <h2 className="text-3xl md:text-5xl font-bold mb-8">
+              {inbookCase.result.heading[localeKey]}
+            </h2>
+            <p className="text-gray-300 leading-relaxed text-lg max-w-2xl mx-auto">
+              {inbookCase.result.content[localeKey]}
+            </p>
           </div>
         </section>
 

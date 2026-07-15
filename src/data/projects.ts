@@ -82,16 +82,44 @@ export const projects: Project[] = [
       en: 'Sympla',
     },
     subtitle: {
-      pt: 'Em breve',
-      en: 'Coming soon',
+      pt: 'Um CTA que faltava para 86% dos usuários',
+      en: 'The missing CTA for 86% of users',
     },
     description: {
-      pt: 'Case em desenvolvimento',
-      en: 'Case in development',
+      pt: 'Como a análise de dados revelou uma barreira de conversão no header mobile e um teste A/B a resolveu',
+      en: 'How data analysis revealed a mobile-header conversion barrier and an A/B test solved it',
     },
-    color: '#ffffff',
-    textColor: '#1a1a1a',
-    status: 'placeholder',
+    color: '#1858e6',
+    textColor: '#ffffff',
+    status: 'complete',
+    metrics: [
+      { value: '86%', label: { pt: 'do Tráfego é Mobile', en: 'of Traffic is Mobile' } },
+      { value: '+12%', label: { pt: 'Uplift em Cliques para Criar Evento', en: 'Uplift in Create-Event Clicks' } },
+      { value: '3', label: { pt: 'Variantes Testadas em A/B', en: 'A/B Tested Variants' } },
+    ],
+  },
+  {
+    slug: 'inbook',
+    title: {
+      pt: 'InBook',
+      en: 'InBook',
+    },
+    subtitle: {
+      pt: 'De app coadjuvante a ferramenta indispensável em campo',
+      en: 'From a secondary app to an indispensable field tool',
+    },
+    description: {
+      pt: 'Como pesquisa etnográfica revelou por que promotores não usavam o app e guiou o design de uma nova seção de alertas',
+      en: 'How ethnographic research revealed why promoters weren\'t using the app and guided the design of a new alerts section',
+    },
+    color: '#d81159',
+    textColor: '#ffffff',
+    status: 'complete',
+    metrics: [
+      { value: '15%→60%', label: { pt: 'Meta de Uso Efetivo do App', en: 'Effective Usage Target' } },
+      { value: '13', label: { pt: 'Cenários de Uso Mapeados', en: 'Mapped Usage Scenarios' } },
+      { value: '2', label: { pt: 'Personas Guiando o Desenho', en: 'Personas Guiding the Design' } },
+    ],
   },
   {
     slug: 'superlogica',

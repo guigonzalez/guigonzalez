@@ -9,6 +9,7 @@ const projectImages: Record<string, string> = {
   whirlpool: '/images/projects/whirlpool.png',
   gympass: '/images/projects/gympass.png',
   sympla: '/images/projects/sympla.png',
+  inbook: '/images/projects/incube.png',
   superlogica: '/images/projects/superlogica.png',
   raiadrogasil: '/images/projects/raiadrigasil.png',
   mastercard: '/images/projects/mastercard.png',
